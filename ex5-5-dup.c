@@ -18,9 +18,9 @@ main(int argc, char *argv[])
 	if (oldfd == -1)
 		errExit("open");
 
-	newfd = open(argv[1], O_RDONLY);
+	newfd = dup(oldfd);		
 	if (newfd == -1)
-		errExit("open");
+		errExit("dup");
 		
 
 	// part 1: compare offset
@@ -49,7 +49,6 @@ main(int argc, char *argv[])
 	if (new_status == -1)
 		errExit("fcntl F_GETFL");
 
-	printf("Before modify status:\n");
 	if (new_status == old_status) 
 		printf("file status is the same: %d\n", old_status);
 	else
@@ -68,7 +67,6 @@ main(int argc, char *argv[])
 	if (new_status == -1)
 		errExit("fcntl F_GETFL");
 
-	printf("After modify status:\n");
 	if (new_status == old_status) 
 		printf("file status is the same: %d\n", old_status);
 	else
