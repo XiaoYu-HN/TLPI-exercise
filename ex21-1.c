@@ -19,9 +19,9 @@ void my_abort(void)
     // raise SIGABRT signal
     raise(SIGABRT);
 
-	// If execution reaches here
-	// it means the user-defined signal handler has returned (without calling exit or longjmp).
-	//
+    // If execution reaches here
+    // it means the user-defined signal handler has returned (without calling exit or longjmp).
+    //
     // restoring the default disposition for SIGABRT
     sigemptyset(&sa.sa_mask);
     sa.sa_flags = 0;
