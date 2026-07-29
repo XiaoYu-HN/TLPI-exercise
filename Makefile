@@ -3,7 +3,7 @@ include ../Makefile.inc
 GEN_EXE = ex3-1 ex3-2 ex4-1 ex4-2 ex5-1 ex5-2 ex5-3 ex5-4 ex5-5 ex6-2 ex6-3 ex7-1 ex8-1 ex8-2 ex9-0 ex9-3 \
 ex10-1 ex12-1 ex14-1 ex14-2 ex15-3 ex15-6 ex16-1 ex17-1 ex18-1 ex18-5 ex18-6 ex18-9 ex18-9-v2 ex19-1 ex20-1 \
 ex20-2 ex20-3 ex22-1 ex22-2 ex22-3 ex23-1 ex23-2 ex23-3 ex23-4 ex24-2 ex24-3 ex24-5 ex25-1 ex26-1 ex26-2 \
-ex26-2-simple ex26-3 ex26-4
+ex26-2-simple ex26-3 ex26-4 ex27-6 ex28-1
 
 EXE = ${GEN_EXE} 
 

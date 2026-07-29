@@ -5,29 +5,29 @@ void print_wait_status(siginfo_t *infop);
 
 void print_wait_status(siginfo_t *infop)
 {
-	
-	int status = infop->si_status;
-	int code = infop->si_code;
-	
+
+    int status = infop->si_status;
+    int code = infop->si_code;
+
     if (code == CLD_EXITED) {
         printf("child exited, status=%d\n", WEXITSTATUS(status));
 
     } else if (code == CLD_KILLED || code == CLD_DUMPED) {
         printf("child killed by signal %d (%s)",
-                status, strsignal(status));
+               status, strsignal(status));
         if (code == CLD_DUMPED)
             printf(" (core dumped)");
         printf("\n");
 
     } else if (code == CLD_STOPPED) {
         printf("child stopped by signal %d (%s)\n",
-                status, strsignal(status));
+               status, strsignal(status));
 
     } else if (code == CLD_CONTINUED) {
         printf("child continued\n");
     } else {            /* Should never happen */
         printf("what happened to this child? (status=%x)\n",
-                (unsigned int) status);
+               (unsigned int) status);
     }
 }
 
@@ -60,8 +60,8 @@ main(int argc, char *argv[])
                 errExit("waitid");
 
             printf("waitpid() returned: PID=%ld; status=0x%04x (%d,%d)\n",
-				(long) infop.si_pid,
-				infop.si_status, infop.si_status >> 8, infop.si_status & 0xff);
+                   (long) infop.si_pid,
+                   infop.si_status, infop.si_status >> 8, infop.si_status & 0xff);
 
             print_wait_status(&infop);
 
